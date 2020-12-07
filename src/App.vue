@@ -1,12 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <h1>Welcome!!</h1>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/" replace>Home</router-link> |
+      <router-link :to="{ path: '/about' }" replace>About</router-link> |
+      <router-link to="/shuki/3">Shuki</router-link>
+    </div>
+    <counter />
+    <counter />
+    <counter />
+    <!-- <router-view /> -->
+  </div>
 </template>
 
 <script>
+import Counter from "@/components/Counter";
 export default {
-  name: "App",
-  components: {}
+  components: { Counter }
 };
 </script>
 
@@ -17,6 +26,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
