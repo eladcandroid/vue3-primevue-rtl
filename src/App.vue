@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <message-box />
+    <counter v-if="showCounter" />
+    <button @click="showCounter = false">HIDE</button>
   </div>
 </template>
 
 <script>
-import MessageBox from "./components/MessageBox.vue";
+import Counter from "./components/Counter.vue";
 export default {
-  components: { MessageBox }
+  components: { Counter },
+  data() {
+    return {
+      showCounter: true
+    };
+  }
 };
 </script>
 
