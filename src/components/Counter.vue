@@ -1,19 +1,37 @@
 <template>
-  <div>{{ count }}</div>
-  <button @click="increment">Increment</button>
+  <div>doubleCountComputed: {{ doubleCountComputed }}</div>
+  <button @click="$store.dispatch('incrementCountBy10')">Increment</button>
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
+// import { INCREMENT_MUTATION } from "@/store/mutation-types.js";
+
 export default {
   name: "counter",
+  mounted() {
+    this.$store.dispatch("users/login");
+  },
   data() {
     return {
-      count: 0
+      title: "BEST COUNTER EVER"
     };
   },
   methods: {
-    increment() {
-      this.count++;
+    ...mapMutations("increment"),
+    ...mapActions("users", ["login"])
+  },
+  computed: {
+    titleLength() {
+      return this.title.length;
+    },
+    // count() {
+    //     return this.$store.state.count
+    // }
+    ...mapState(["shuki", "count"]),
+    ...mapGetters({ doubleCountComputed: "doubleCount" }),
+    doubleCountLocal() {
+      return this.count * 2;
     }
   }
 };

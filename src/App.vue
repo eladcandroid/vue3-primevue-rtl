@@ -1,21 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/" replace>Home</router-link> |
-      <router-link :to="{ path: '/about' }" replace>About</router-link> |
-      <router-link to="/shuki/3">Shuki</router-link>
-    </div>
-    <counter />
-    <counter />
-    <counter />
-    <!-- <router-view /> -->
+    <message-box />
   </div>
 </template>
 
 <script>
-import Counter from "@/components/Counter";
+import MessageBox from "./components/MessageBox.vue";
 export default {
-  components: { Counter }
+  components: { MessageBox }
 };
 </script>
 
