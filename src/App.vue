@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <div class="p-field-checkbox ui-rtl" dir="rtl">
+      <Checkbox id="city1" name="city" value="Chicago" v-model="cities" />
+      <label for="city1">Chicago</label>
+    </div>
     <counter v-if="showCounter" />
     <button @click="showCounter = false">HIDE</button>
   </div>
@@ -7,11 +11,13 @@
 
 <script>
 import Counter from "./components/Counter.vue";
+import Checkbox from "primevue/checkbox";
 export default {
-  components: { Counter },
+  components: { Counter, Checkbox },
   data() {
     return {
-      showCounter: true
+      showCounter: true,
+      cities: []
     };
   }
 };
